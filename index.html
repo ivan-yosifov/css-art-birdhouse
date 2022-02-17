@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Birdhouse</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body{
+			background: #b4e4fd;
+		}
+		.container{
+			width: 600px;
+			height: 600px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		.birdhouse{
+			width: 265px;
+			height: 170px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 145px;
+			margin: auto;
+			background: linear-gradient(
+				#fffff6 17%,
+				#edebdc 17%,
+				#edebdc 20%,
+				#fffff6 20%,
+				#fffff6 37%,
+				#edebdc 37%,
+				#edebdc 40%,
+				#fffff6 40%,
+				#fffff6 57%,
+				#edebdc 57%,
+				#edebdc 60%,
+				#fffff6 60%,
+				#fffff6 77%,
+				#edebdc 77%,
+				#edebdc 80%,
+				#fffff6 80%
+			);
+		}
+		.roof{
+			width: 265px;
+			height: 265px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin: auto;
+			top: -140px;
+			overflow: hidden;
+			z-index: -1;
+		}
+		.roof:before{
+			content: '';
+			width: 265px;
+			height: 265px;
+			background: linear-gradient(
+				135deg,
+				#fffff6 8%,
+				#edebdc 8%,
+				#edebdc 9%,
+				#fffff6 9%,
+				#fffff6 17%,
+				#edebdc 17%,
+				#edebdc 18%,
+				#fffff6 18%,
+				#fffff6 26%,
+				#edebdc 26%,
+				#edebdc 27%,
+				#fffff6 27%,
+				#fffff6 35%,
+				#edebdc 35%,
+				#edebdc 36%
+			);
+			position: absolute;
+			transform: rotate(45deg);
+			top: 60px;
+		}
+		.left-roof{
+			width: 330px;
+			height: 25px;
+			background: #805556;
+			border-radius: 30px;
+			position: absolute;
+			left: 80%;
+			transform-origin: left;
+			transform: translate(-80%, 100%) rotate(-45deg);
+		}
+		.right-roof{
+			width: 330px;
+			height: 25px;
+			background: #805556;
+			border-radius: 30px;
+			position: absolute;
+			right: 80%;
+			transform-origin: right;
+			transform: translate(80%, 100%) rotate(45deg);
+		}
+		.hole{
+			width: 105px;
+			height: 105px;
+			background: #805556;
+			border-radius: 50%;
+			border: 10px solid #edebdc;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 10px;
+			margin: auto;
+		}
+		.base{
+			width: 300px;
+			height: 25px;
+			background: #805556;
+			border-radius: 25px;
+			position: absolute;
+			bottom: -10px;
+			left: 50%;
+			transform: translate(-50%);
+		}
+		.flower{
+			width: 20px;
+			height: 60px;
+			position: absolute;
+			border-radius: 20px;
+		}
+		.flower:before{
+			content: '';
+			width: 20px;
+			height: 60px;
+			position: absolute;
+			border-radius: 20px;
+			transform: rotate(60deg);
+		}
+		.flower:after{
+			content: '';
+			width: 20px;
+			height: 60px;
+			position: absolute;
+			transform: rotate(120deg);
+			border-radius: 20px;
+		}
+		.flower .center{
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			border-radius: 50%;
+			z-index: 1;
+		}
+		.pink.flower, .pink.flower:before, .pink.flower:after{
+			background: #ffc4e4;
+		}
+		.white.flower, .white.flower:before, .white.flower:after{
+			background: #fff;
+		}
+		.yellow.flower, .yellow.flower:before, .yellow.flower:after{
+			background: #ffeaa8;
+		}
+		.pink.flower .center, .white.flower .center{
+			background: #ffeaa8;
+		}
+		.yellow.flower .center{
+			background: #fff;
+		}
+		.big{
+			transform: scale(1.4);
+		}
+		.small{
+			transform: scale(.8);
+		}
+		.flower:nth-child(1){
+			left: 70px;
+			bottom: 50px;
+			animation: spin 15s infinite linear;
+		}
+		@keyframes spin{
+			from{
+				transform: rotate(0);
+			}
+			to{
+				transform: rotate(359deg);
+			}
+		}
+		.flower:nth-child(2){
+			right: 0;
+			top: -60px;
+		}
+		.flower:nth-child(3){
+			top: -130px;
+			right: 38px;
+		}
+		.flower:nth-child(4){
+			top: -130px;
+			right: -25px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="birdhouse">
+			<div class="left-roof"></div>
+			<div class="right-roof"></div>
+			<div class="roof"></div>
+			<div class="hole"></div>
+			<div class="base"></div>
+			<div class="flowers">
+				<div class="flower pink">
+					<span class="center"></span>
+				</div>
+				<div class="flower pink big">
+					<span class="center"></span>
+				</div>
+				<div class="flower white">
+					<span class="center"></span>
+				</div>
+				<div class="flower yellow small">
+					<span class="center"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
